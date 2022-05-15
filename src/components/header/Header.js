@@ -7,7 +7,8 @@ import UserContext from '../../contexts/UserContext';
 export function Header() {
 
   const { user } = useContext(UserContext);
-console.log(user)
+
+
   return (
     <Container>
       <LogoContainer></LogoContainer>
@@ -15,7 +16,7 @@ console.log(user)
       <ActionContainer>
         <FiShoppingCart />
         <FiHeart />
-        { !user ? (<Link to="/signin">
+        { !user.name ? (<Link to="/signin">
           <div>
             <span>Entrar/Cadastrar</span>
             <FiUser />
