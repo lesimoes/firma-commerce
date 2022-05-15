@@ -1,20 +1,21 @@
 import styled from "styled-components";
 
 const Button = styled.div`
+    max-width: 200px;
+    width: 140px;
+    height: 26px;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: ${props => props.theme.gray3};
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 200px;
-    height: 40px;
-    border-radius: 10px;
-    color: #5E5E5E;
-    font-weight: bold;
-    font-size: 24px;
-    background-color: #FFD445;
-    cursor: pointer;
+    border-radius: 2px;
 
-    &:active {
-        background-color: #FFE800;
+    &:hover {
+        color: white;
+        background-color: ${props => props.theme.gray1};
+        cursor: pointer;
     }
 
 `

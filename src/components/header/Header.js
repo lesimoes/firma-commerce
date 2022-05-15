@@ -1,21 +1,32 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { FiShoppingCart, FiHeart, FiUser, FiSearch } from 'react-icons/fi';
-import logo from '../../assets/logo.png'
+import UserContext from '../../contexts/UserContext';
 
 export function Header() {
+
+  const { user } = useContext(UserContext);
+console.log(user)
   return (
     <Container>
-      <LogoContainer>
-      </LogoContainer>
+      <LogoContainer></LogoContainer>
       <InputContainer />
       <ActionContainer>
         <FiShoppingCart />
         <FiHeart />
-        <div>
-          <span>Entrar/Cadastrar</span>
-          <FiUser />
-        </div>
+        { !user ? (<Link to="/signin">
+          <div>
+            <span>Entrar/Cadastrar</span>
+            <FiUser />
+          </div>
+        </Link>) : (<Link to="/">
+          <div>
+            <span>{user.name}</span>
+            <FiUser />
+          </div>
+        </Link>)}
+
       </ActionContainer>
     </Container>
   );
@@ -28,6 +39,9 @@ const Container = styled.div`
   width: 100vw;
   padding: 20px 0px;
 
+  a {
+    all: unset;
+  }
 `;
 
 const LogoContainer = styled.div`
@@ -36,12 +50,12 @@ const LogoContainer = styled.div`
   img {
     width: 60px;
   }
-`
+`;
 
 const InputContainer = styled.input`
   height: 30px;
   flex-grow: 2;
-  border: solid 1px ${props => props.theme.gray3};
+  border: solid 1px ${(props) => props.theme.gray3};
   border-radius: 2px;
   margin: 0 2% 0 2%;
   font-size: 18px;
@@ -59,13 +73,14 @@ const ActionContainer = styled.div`
     font-size: 12px;
   }
 
-  svg:hover, span:hover {
+  svg:hover,
+  span:hover {
     cursor: pointer;
     color: gray;
   }
 
   div {
-    display:flex;
+    display: flex;
     align-items: center;
     justify-content: space-around;
     flex-grow: 0.1;
