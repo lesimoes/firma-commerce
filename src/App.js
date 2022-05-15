@@ -1,23 +1,34 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import GlobalStyle from './styles/globalStyle';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Home } from './pages/home/Home';
+import { Sign } from './pages/sign/Sign';
+import UserContext from './contexts/UserContext';
+import { MainLayout } from './layouts/MainLayout';
+import Shop from './pages/shop/Shop';
 
 function App() {
+
+  const [user, setUser] = useState({});
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <GlobalStyle />
+      <UserContext.Provider value={{user, setUser}}>
+        <BrowserRouter>
+          <Routes>
+            <Route exact path="/sign" element={<Sign />} />
+            <Route element={<MainLayout />}>
+              <Route exact path="/" element={<Home />} />
+            </Route>
+            <Route element={<MainLayout />}>
+              <Route exact path="/shop" element={<Shop />} />
+            </Route>
+
+          </Routes>
+        </BrowserRouter>
+      </UserContext.Provider>
     </div>
   );
 }

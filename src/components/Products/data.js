@@ -1,0 +1,68 @@
+// eslint-disable-next-line import/no-anonymous-default-export
+export default [
+    {
+        name: 'Boné',
+        description: 'Boné super da hora',
+        listPrice: 18000,
+        price: 20000,
+        imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
+        id: 1,
+    },
+    {
+        name: 'Boné',
+        description: 'Boné super da hora',
+        listPrice: 18000,
+        price: 18000,
+        imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
+        id: 1,
+    },
+    {
+        name: 'Boné',
+        description: 'Boné super da hora',
+        listPrice: 18000,
+        price: 18000,
+        imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
+        id: 1,
+    },
+    {
+        name: 'Boné',
+        description: 'Boné super da hora',
+        listPrice: 18000,
+        price: 18000,
+        imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
+        id: 1,
+    },
+    {
+        name: 'Boné',
+        description: 'Boné super da hora',
+        listPrice: 18000,
+        price: 18000,
+        imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
+        id: 1,
+    },
+    {
+        name: 'Boné',
+        description: 'Boné super da hora',
+        listPrice: 18000,
+        price: 18000,
+        imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
+        id: 1,
+    },
+    {
+        name: 'Boné',
+        description: 'Boné super da hora',
+        listPrice: 18000,
+        price: 18000,
+        imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
+        id: 1,
+    },
+    {
+        name: 'Boné',
+        description: 'Boné super da hora',
+        listPrice: 18000,
+        price: 20000,
+        imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
+        id: 1,
+    },
+    
+]
