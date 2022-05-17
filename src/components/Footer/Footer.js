@@ -12,18 +12,16 @@ export default function Footer () {
 
     return (
         <Container>
-            <div>
+            <Social>
                 <FiInstagram />
                 <FiFacebook />
                 <FiTwitter />
                 <FiYoutube />
-            </div>
-            <div>
+            </Social>
+            <Copyright>
                 lojinha - {new Date().getFullYear()}
-            </div>
-            <div>
+            </Copyright>
 
-            </div>
 
         </Container>
     )
@@ -37,9 +35,25 @@ const Container = styled.footer`
     border-top: solid 1px ${props => props.theme.gray3};
 
     div {
+
+    }
+
+    @media (max-width: 600px) {
+        justify-content: center;
+    }
+
+`
+
+const Copyright = styled.div`
         display: flex;
         margin: 0 10px;
 
+    @media (max-width: 600px) {
+        display: none;
+    }
+`
+
+const Social = styled.div`
         svg {
             font-size: 18px;
             padding: 0 4px;
@@ -49,6 +63,9 @@ const Container = styled.footer`
             cursor: pointer;
             color: gray;
         }
+
+    @media (max-width: 600px) {
+        display: flex;
     }
 
 `
