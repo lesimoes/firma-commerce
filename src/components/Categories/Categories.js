@@ -24,7 +24,8 @@ const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  flex: 1;
+  justify-content: center;
+  flex-grow: 1;
 `;
 
 const Item = styled.div`
