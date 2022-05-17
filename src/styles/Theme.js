@@ -10,6 +10,7 @@ const main = {
     gray1: '#262626',
     gray2: '#e6e6e6',
     gray3: '#cccccc',
+    gray4: '#636262',
     red1: '#ff4d4f',
     red2: '#ffcacb',
     red3: '#ffa5a6',

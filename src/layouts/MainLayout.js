@@ -14,24 +14,19 @@ export function MainLayout() {
     <React.Fragment>
       <ThemeProvider theme={main}>
         <SidebarContext.Provider value={{ sidebarMobile, setSidebarMobile }}>
-          <Container>
-            <ContentContainer>
-              <HeaderContainer>
-                <Header />
-              </HeaderContainer>
-                {sidebarMobile ? (
-                  <>
-            
-                    <Disable>
-                      <Outlet />
-                    </Disable>
-                    
-                  </>        
-                ) : <Outlet />}
-              
-            </ContentContainer>
-            <Footer />
-          </Container>
+          {sidebarMobile ? (
+            <SidebarMobile />
+          ) : (
+            <Container>
+              <ContentContainer>
+                <HeaderContainer>
+                  <Header />
+                </HeaderContainer>
+                <Outlet />
+              </ContentContainer>
+              <Footer />
+            </Container>
+          )}
         </SidebarContext.Provider>
       </ThemeProvider>
     </React.Fragment>
@@ -57,7 +52,3 @@ const HeaderContainer = styled.div`
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 `;
-
-const Disable = styled.div`
- 
-`
