@@ -21,7 +21,7 @@ export function MainLayout() {
               </HeaderContainer>
                 {sidebarMobile ? (
                   <>
-                    <SidebarMobile />
+            
                     <Disable>
                       <Outlet />
                     </Disable>
@@ -59,5 +59,5 @@ const HeaderContainer = styled.div`
 `;
 
 const Disable = styled.div`
-  backdrop-filter: brightness(60%);
+ 
 `
