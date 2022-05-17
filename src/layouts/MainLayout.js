@@ -40,7 +40,7 @@ const Container = styled.div`
 `;
 
 const ContentContainer = styled.div`
-  margin-top: 20vh;
+  margin-top: 12vh;
   min-height: 90vh;
 `;
 const HeaderContainer = styled.div`
@@ -48,7 +48,7 @@ const HeaderContainer = styled.div`
   top: 0;
   z-index: 10;
   width: 100vw;
-  height: 12vh;
+  height: 10vh;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 `;

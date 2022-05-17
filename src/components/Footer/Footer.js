@@ -31,7 +31,7 @@ const Container = styled.footer`
     display: flex;
     flex: 4;
     justify-content: space-between;
-    padding: 10px 20px;
+    padding: 20px 20px;
     border-top: solid 1px ${props => props.theme.gray3};
 
     div {
