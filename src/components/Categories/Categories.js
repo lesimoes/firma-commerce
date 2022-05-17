@@ -7,8 +7,8 @@ export default function Categories() {
   return (
     <Container>
       {categoryImages.map((value, index) => (
-        <Link to={`/${value.linkUrl}`}>
-          <Item key={index}>
+        <Link to={`/${value.linkUrl}`} key={index}>
+          <Item >
             <img src={value.imageUrl} alt={value.title} />
             <ItemContent>
               <h4>{value.title}</h4>

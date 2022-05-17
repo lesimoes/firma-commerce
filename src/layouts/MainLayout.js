@@ -5,25 +5,34 @@ import styled, { ThemeProvider } from 'styled-components';
 import { main } from '../styles/Theme';
 import Footer from '../components/Footer/Footer';
 import SidebarContext from '../contexts/SidebarContext';
+import SidebarMobile from '../components/header/SidebarMobile';
 
-export function MainLayout({ children }) {
-  const [sidebarMobile, setSidebarMobile] = useState(true);
+export function MainLayout() {
+  const [sidebarMobile, setSidebarMobile] = useState(false);
 
   return (
     <React.Fragment>
       <ThemeProvider theme={main}>
-        <Container>
-          <SidebarContext.Provider value={{sidebarMobile, setSidebarMobile}}>
+        <SidebarContext.Provider value={{ sidebarMobile, setSidebarMobile }}>
+          <Container>
             <ContentContainer>
-              {sidebarMobile ? 'SIDEBAR' : null}
               <HeaderContainer>
                 <Header />
               </HeaderContainer>
-              <Outlet />
+                {sidebarMobile ? (
+                  <>
+                    <SidebarMobile />
+                    <Disable>
+                      <Outlet />
+                    </Disable>
+                    
+                  </>        
+                ) : <Outlet />}
+              
             </ContentContainer>
-          </SidebarContext.Provider>
-          <Footer />
-        </Container>
+            <Footer />
+          </Container>
+        </SidebarContext.Provider>
       </ThemeProvider>
     </React.Fragment>
   );
@@ -48,3 +57,7 @@ const HeaderContainer = styled.div`
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 `;
+
+const Disable = styled.div`
+  backdrop-filter: brightness(60%);
+`
