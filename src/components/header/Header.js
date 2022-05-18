@@ -1,7 +1,14 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { FiShoppingCart, FiHeart, FiUser, FiShoppingBag, FiMenu } from 'react-icons/fi';
+import {
+  FiShoppingCart,
+  FiHeart,
+  FiUser,
+  FiShoppingBag,
+  FiMenu,
+  FiSearch,
+} from 'react-icons/fi';
 import UserContext from '../../contexts/UserContext';
 import SidebarContext from '../../contexts/SidebarContext'
 
@@ -15,7 +22,11 @@ export function Header() {
       <LogoContainer>
         <FiShoppingBag />
       </LogoContainer>
-      <InputContainer />
+      <InputContainer>
+        <input placeholder='O que você quer comprar hoje?'></input>
+        <FiSearch />
+      </InputContainer>
+      
       <ActionContainer>
         <FiShoppingCart />
         <FiHeart />
@@ -52,7 +63,7 @@ const Container = styled.div`
 `;
 
 const LogoContainer = styled.div`
-  flex-grow: 1;
+  flex-grow: 0.4;
 
   svg {
     font-size: 28px;
@@ -62,14 +73,41 @@ const LogoContainer = styled.div`
 
 `;
 
-const InputContainer = styled.input`
-  height: 30px;
+const InputContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-grow: 2;
-  border: solid 1px ${(props) => props.theme.gray3};
-  border-radius: 2px;
   margin: 0 2% 0 2%;
-  font-size: 18px;
-  padding: 0 4px;
+
+  input {
+    height: 30px;
+    border: solid 1px ${(props) => props.theme.gray3};
+    border-radius: 2px;  
+    font-size: 18px;
+    padding: 0 4px;
+    width: 80%;
+    border-right: none;
+  }
+
+  input::placeholder {
+    font-size: 14px;
+  }
+
+  svg {
+    font-size: 18px;
+    height: 30px;
+    padding: 0 10px;
+    border: solid 1px ${(props) => props.theme.gray3};
+    border-radius: 2px;
+    background-color: ${(props) => props.theme.gray2};
+  }
+
+  svg:hover {
+    cursor: pointer;
+    background-color: ${(props) => props.theme.gray3};
+  }
+
 `;
 
 const ActionContainer = styled.div`
