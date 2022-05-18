@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components'
+import UserContext from '../../contexts/UserContext';
 import { FiArrowLeft } from "react-icons/fi";
 import SidebarContext from '../../contexts/SidebarContext'
 import Footer from '../Footer/Footer';
@@ -7,11 +8,14 @@ import Footer from '../Footer/Footer';
 export default function SidebarMobile () {
 
     const {sidebarMobile, setSidebarMobile} = useContext(SidebarContext);
+    const { user } = useContext(UserContext);
 
     return (
         <Container>
             <div className="header">
-                <FiArrowLeft size={32} onClick={() => setSidebarMobile(!sidebarMobile)}/>
+                <FiArrowLeft size={22} onClick={() => setSidebarMobile(!sidebarMobile)}/>
+                {user.profile ? <img src={user.profile} alt="profile" /> : null}
+                
             </div>
             <ul>
                 <li>Perfil</li>
@@ -33,10 +37,16 @@ const Container = styled.div`
 
     .header {
         display: flex;
-        justify-content: flex-start;
+        align-items: center;
+        justify-content: space-between;
         flex: 1;    
     }
 
+    img {
+    width: 32px;
+    border-radius: 50%;
+    border: 2px solid ${(props) => props.theme.gray1};
+  }
 
 
     .footer {

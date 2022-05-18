@@ -37,8 +37,8 @@ export function Header() {
           </div>
         </Link>) : (<Link to="/">
           <div>
-            <span>{user.name}</span>
-            <FiUser />
+            <span>{user.name.split(' ')[0]}</span>
+            <img src={user.profile} alt="profile" />
           </div>
         </Link>)}
 
@@ -112,13 +112,24 @@ const InputContainer = styled.div`
 
 const ActionContainer = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   flex-grow: 1;
   color: ${(props) => props.theme.gray1};
 
+  img {
+    width: 28px;
+    border-radius: 50%;
+    border: 2px solid ${(props) => props.theme.gray1};
+  }
+
+  svg {
+    font-size: 18px;
+  }
+
   span {
     font-size: 12px;
+    margin: 0 4px;
   }
 
   svg:hover,
@@ -151,6 +162,7 @@ const ActionContainer = styled.div`
 const MobileActionContainer = styled.div`
   display: none;
 
+
   @media (max-width: 600px) {
     display: flex;
     flex-grow: 1;
@@ -158,7 +170,7 @@ const MobileActionContainer = styled.div`
     margin: 0 4px;
 
     svg {
-      font-size: 18px;
+      font-size: 24px;
     }
   }
 
